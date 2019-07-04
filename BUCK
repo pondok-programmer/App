@@ -1,29 +1,35 @@
+apple_asset_catalog(
+  name = 'MyAssetCatalog',
+  dirs = glob([
+    'App/**/*.xcassets',
+  ]),
+)
+
 apple_resource(
-    name = 'ShopcietyResources',
-    dirs = [
-        'Shopciety/Assets.xcassets'
-    ],
+    name = 'AppResources',
+    dirs = [],
     files = glob([
-        'Shopciety/**/*.storyboard',
-        'Shopciety/**/*.xib'
+        'App/**/*.storyboard',
+        'App/**/*.xib'
     ]),
 )
 
 apple_bundle(
-  name = 'Shopciety',
-  binary = ':ShopcietyBinary',
-  deps = [':ShopcietyResources'],
+  name = 'App',
+  binary = ':AppBinary',
+  deps = [':AppResources'],
   extension = 'app',
-  info_plist = 'Shopciety/Info.plist',
+  info_plist = 'App/Info.plist',
   tests = [],
 )
 
 apple_binary(
-    name = 'ShopcietyBinary',
+    name = 'AppBinary',
     srcs = glob([
-        "Shopciety/*.m"
+        "App/*.m",
+        "App/*.swift"
     ]),
-    headers = glob(['Shopciety/*.h']),
+    headers = glob(['App/*.h']),
     frameworks = [
         '$SDKROOT/System/Library/Frameworks/Foundation.framework',
         '$SDKROOT/System/Library/Frameworks/UIKit.framework',
