@@ -1,13 +1,8 @@
-apple_asset_catalog(
-  name = 'MyAssetCatalog',
-  dirs = glob([
-    'App/**/*.xcassets',
-  ]),
-)
-
 apple_resource(
     name = 'AppResources',
-    dirs = [],
+    dirs = [
+      'App/Assets.xcassets'
+    ],
     files = glob([
         'App/**/*.storyboard',
         'App/**/*.xib'
