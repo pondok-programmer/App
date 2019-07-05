@@ -1,4 +1,5 @@
 import UIKit
+import ViewDSL
 
 class ViewController: UIViewController {
     override func viewDidLoad() {
