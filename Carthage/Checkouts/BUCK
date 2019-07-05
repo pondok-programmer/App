@@ -1,0 +1,23 @@
+viewdsl_dir = 'viewdsl/ViewDSL'
+
+apple_library(
+    name = 'ViewDSL',
+    visibility = [
+        'PUBLIC'
+    ],
+    headers = glob([
+        viewdsl_dir + '/**/*.h'
+    ]),
+    exported_headers = glob([
+        viewdsl_dir + '/**/*.h'
+    ]),
+    modular = True,
+    srcs = glob([
+        viewdsl_dir + '/**/*.m',
+        viewdsl_dir + '/**/*.swift'
+    ]),
+    frameworks = [
+        '$SDKROOT/System/Library/Frameworks/Foundation.framework',
+        '$SDKROOT/System/Library/Frameworks/UIKit.framework',
+    ],
+)
